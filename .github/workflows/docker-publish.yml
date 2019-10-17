@@ -9,7 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Build and Publish dbt-core
-      run: ./docker-publish -i dbt -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
-    - name: Build and Publish dbt-spark
-      run: ./docker-publish -i dbt -t spark -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+    - name: Build and Publish default label
+      run: ./docker-publish -i redpillanalytics/dbt -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+    - name: Build and Publish spark label
+      run: ./docker-publish -i redpillanalytics/dbt -t spark -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}

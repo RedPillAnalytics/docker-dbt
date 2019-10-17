@@ -9,7 +9,8 @@ RUN apt-get update -y && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install DBT
-RUN pip install dbt==0.14.3
+RUN pip install dbt==0.13.0 && \
+    pip install dbt-spark
 
 # Set environment variables
 ENV DBT_DIR /dbt

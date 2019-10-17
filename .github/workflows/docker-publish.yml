@@ -9,5 +9,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
     - uses: actions/checkout@master
-    - name: Build and Publish Image
-      run: ./docker-publish -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+    - name: Build and Publish default label
+      run: ./docker-publish -i redpillanalytics/dbt -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}
+    - name: Build and Publish spark label
+      run: ./docker-publish -i redpillanalytics/dbt -t spark -u ${{ secrets.DOCKER_USERNAME }} -p ${{ secrets.DOCKER_PASSWORD }}

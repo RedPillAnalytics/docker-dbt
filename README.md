@@ -1,8 +1,16 @@
-# docker-build
-A template repository for building docker images and publishing them to Docker Hub. At the moment, this uses GitHub Actions, but not sure of the longterm direction.
+# docker-dbt
+A docker image used for executing the Data Build Tool CLI `dbt`. The CLI is very easy to use, and doesn't really require a Docker image: my motivation for building this was I needed the ability to be able to run multiple versions of dbt.
 
-The following Github *secrets* are used as part of the build and publish process:
+The following environment variables are defined during the `docker build`:
 
-**DOCKER_USER**: Used for loging into DockerHub.
+```
+DBT_DIR: /dbt
+WORKSPACE: /workspace
+```
 
-**DOCKER_PASSWORD**: Used for loging into DockerHub.
+To execute the `dbt` CLI using docker from within the dbt project repository, execute the following:
+
+```
+docker run -v "$PWD":/workspace -v "$HOME/.dbt":/root/.dbt redpillanalytics/dbt <dbt subcommand and/or arguments>
+```
+

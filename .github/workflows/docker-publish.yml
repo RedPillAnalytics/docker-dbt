@@ -3,7 +3,7 @@ on:
   push:
     branches:
     - master
-  tag:
+  tags:
 jobs:
   build:
     runs-on: ubuntu-latest

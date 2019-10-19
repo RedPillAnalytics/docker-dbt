@@ -13,10 +13,14 @@ RUN pip install dbt==0.13.0 && \
     pip install dbt-spark
 
 # Set environment variables
-ENV DBT_DIR /dbt
+ENV DBT_DIR=/dbt \
+    WORKSPACE=/workspace \
+    PROFILE_DIR=/root/.dbt
+
+ENV PATH=$DBT_DIR:$PATH
 
 # Set working directory
-WORKDIR $DBT_DIR
+WORKDIR $WORKSPACE
 
-# Run dbt
+# Make dbt an API
 ENTRYPOINT ["dbt"]

@@ -9,15 +9,10 @@ RUN apt-get update -y && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install DBT
-RUN pip install dbt==0.13.0 && \
-    pip install dbt-spark
+RUN pip install dbt==0.14.3
 
 # Set environment variables
-ENV DBT_DIR=/dbt \
-    WORKSPACE=/workspace \
-    PROFILE_DIR=/root/.dbt
-
-ENV PATH=$DBT_DIR:$PATH
+ENV WORKSPACE=/workspace
 
 # Set working directory
 WORKDIR $WORKSPACE

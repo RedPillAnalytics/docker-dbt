@@ -1,5 +1,5 @@
 # Go ahead and start with a JDK
-FROM python:3.7
+FROM python:latest
 
 # Update and install system packages
 RUN apt-get update -y && \

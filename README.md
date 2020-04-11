@@ -15,6 +15,6 @@ WORKSPACE: /workspace
 To execute the `dbt` CLI using docker from within the dbt project repository, execute the following:
 
 ```
-docker run -v "$PWD":/workspace -v "$HOME/.dbt":/root/.dbt redpillanalytics/dbt <dbt subcommand and/or arguments>
+docker run -v "$PWD":/workspace -v "$HOME/.dbt":/root/.dbt gcr.io/rpa-devops/dbt <dbt subcommand and/or arguments>
 ```
 

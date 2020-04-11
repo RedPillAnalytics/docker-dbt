@@ -9,4 +9,6 @@ steps:
   id: kaniko-build
 - name: gcr.io/$PROJECT_ID/dbt:latest
   id: kaniko-test
+  args:
+    - --version
 timeout: 3600s

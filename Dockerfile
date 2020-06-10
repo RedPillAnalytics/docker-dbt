@@ -9,7 +9,8 @@ RUN apt-get update -y && \
     rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 # Install DBT
-RUN pip install dbt==0.16.0
+RUN pip install --upgrade pip && \
+    pip install dbt
 
 # Set environment variables
 ENV WORKSPACE=/workspace
